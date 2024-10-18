@@ -6,10 +6,21 @@ let gridSpaces = [];
 
 function createGrid(gridSize) {
     for (let i = 1; i <= gridSize * gridSize; i++) {
+        //create the space first with the black color, so
+        //that when the new div is placed on top it covers it
+        //then when repeatedly hovering the opacity on the inner div
+        //gets lower, therefore the color gets darker
         let gridSpace = document.createElement("div");
         gridSpace.classList.add(`${i}`);
         let width = (SIZE / gridSize).toString();
-        gridSpace.setAttribute("style", `width:${width}px`)
+        gridSpace.setAttribute("style", `width:${width}px`);
+        gridSpace.style.backgroundColor = "black";
+
+        let colorDiv = document.createElement("div");
+        colorDiv.setAttribute("style", `width:${width}px`);
+        colorDiv.setAttribute("style", `height:${width}px`);
+        gridSpace.appendChild(colorDiv);
+
         gridSpaces[i - 1] = gridSpace;
         container.appendChild(gridSpace);
     }
@@ -17,8 +28,6 @@ function createGrid(gridSize) {
     console.log("space: ", gridSpaces[0].style.width);
 
 }
-//711 729
-createGrid(INIT_GRID_SIZE);
 
 function getRandomColorVal() {
     let min = 0;
@@ -26,9 +35,26 @@ function getRandomColorVal() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+let color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
+let opacityMulitplier = 0.1;
+
+container.addEventListener("mouseenter", () => {
+    console.log("has entered grid");
+    color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
+});
+
 container.addEventListener("mouseover", (e) => {
-    let color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
-    e.target.style.backgroundColor = `rgb(${color})`;
+    if (!e.target.style["background-color"]) {
+        e.target.style.backgroundColor = `rgb(${color})`;
+        e.target.style.opacity = 1;
+    }
+    else {
+        if (e.target.style.opacity > 0) {
+            let opacity = (e.target.style.opacity * 10 - opacityMulitplier * 10) / 10;
+            console.log("opacity: ", opacity);
+            e.target.style.opacity = `${opacity}`;
+        }
+    }
 });
 
 btn.addEventListener("click", () => {
@@ -46,3 +72,5 @@ btn.addEventListener("click", () => {
 
     createGrid(userGridSize);
 });
+
+createGrid(INIT_GRID_SIZE);
