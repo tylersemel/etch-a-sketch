@@ -6,21 +6,24 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-}
-
-.container {
-    flex-shrink: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    gap: 2px;
-    width: 710px;
+    align-items: center;
     height: 100vh;
 }
 
+.etch-a-sketch {
+    background-color: darkred;
+    padding: 40px 100px;
+    border-radius: 10px;
+}
+
+.container {
+    width: 480px;
+    height: 480px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .container div {
-    padding: 20px;
-    margin: auto;
-    background-color: rgb(176, 176, 176);
+    background-color: white;
 }
