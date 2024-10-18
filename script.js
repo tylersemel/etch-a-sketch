@@ -24,9 +24,6 @@ function createGrid(gridSize) {
         gridSpaces[i - 1] = gridSpace;
         container.appendChild(gridSpace);
     }
-
-    console.log("space: ", gridSpaces[0].style.width);
-
 }
 
 function getRandomColorVal() {
@@ -39,19 +36,17 @@ let color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
 let opacityMulitplier = 0.1;
 
 container.addEventListener("mouseenter", () => {
-    console.log("has entered grid");
     color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
 });
 
 container.addEventListener("mouseover", (e) => {
-    if (!e.target.style["background-color"]) {
+    if (!e.target.style.backgroundColor ||  `rgb(${color[0]}, ${color[1]}, ${color[2]})` !== e.target.style.backgroundColor) {
         e.target.style.backgroundColor = `rgb(${color})`;
-        e.target.style.opacity = 1;
+        e.target.style.opacity = 1; 
     }
     else {
         if (e.target.style.opacity > 0) {
             let opacity = (e.target.style.opacity * 10 - opacityMulitplier * 10) / 10;
-            console.log("opacity: ", opacity);
             e.target.style.opacity = `${opacity}`;
         }
     }
