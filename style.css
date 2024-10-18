@@ -28,6 +28,11 @@ button {
     background-color: black;
     border-radius: 2px;
     cursor: pointer;
+    transition-duration: 0.6s;
+}
+
+button:hover {
+    background-color: gray;
 }
 
 .etch-a-sketch {
@@ -45,8 +50,8 @@ button {
 
 .container {
     flex-shrink: 0;
-    width: 480px;
-    height: 480px;
+    width: 550px;
+    /* height: 480px; */
     background-color: white;
     filter: drop-shadow(0 0 0.75rem white);
     display: flex;

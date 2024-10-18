@@ -1,10 +1,12 @@
 const INIT_GRID_SIZE = 16;
 const container = document.querySelector(".container");
-const SIZE = 480;
+const SIZE = container.offsetWidth;
 const btn = document.querySelector("button");
 let gridSpaces = [];
 
 function createGrid(gridSize) {
+    console.log(SIZE);
+    console.log(container);
     for (let i = 1; i <= gridSize * gridSize; i++) {
         //create the space first with the black color, so
         //that when the new div is placed on top it covers it
