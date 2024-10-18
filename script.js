@@ -1,6 +1,7 @@
 const INIT_GRID_SIZE = 16;
 const container = document.querySelector(".container");
 const SIZE = 480;
+const btn = document.querySelector("button");
 
 function createGrid(gridSize) {
     let gridSpaces = [];
@@ -27,6 +28,10 @@ function getRandomColorVal() {
 
 container.addEventListener("mouseover", (e) => {
     console.log("test", e.target);
-    let color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
+    let color = [10, getRandomColorVal(), getRandomColorVal()];
     e.target.style.backgroundColor = `rgb(${color})`;
+});
+
+btn.addEventListener("click", () => {
+    console.log("test");
 });
