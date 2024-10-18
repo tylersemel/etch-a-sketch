@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 2px;
+    width: 710px;
+    height: 100vh;
+}
+
+.container div {
+    padding: 20px;
+    margin: auto;
+    background-color: rgb(176, 176, 176);
+}
