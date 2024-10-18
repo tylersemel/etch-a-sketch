@@ -27,8 +27,9 @@ function createGrid(gridSize) {
 }
 
 function getRandomColorVal() {
+    //the min and max values for rgb color generation
     let min = 0;
-    let max = 255
+    let max = 255;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -53,7 +54,6 @@ container.addEventListener("mouseover", (e) => {
 });
 
 btn.addEventListener("click", () => {
-    console.log("test");
     let userGridSize = prompt("Enter a new grid size (Max 100)", 16);
 
     if (userGridSize < 1 || userGridSize > 100) {

@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
 }
 
 
@@ -7,6 +9,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    background-color: azure;
 }
 
 .button-container {
@@ -14,8 +17,17 @@ body {
     justify-content: center;
     align-items: center;
     padding: 50px;
-    width: 300px;
     margin: 0 auto;
+}
+
+button {
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    text-align: center;
+    background-color: black;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
 .etch-a-sketch {
@@ -36,6 +48,7 @@ body {
     width: 480px;
     height: 480px;
     background-color: white;
+    filter: drop-shadow(0 0 0.75rem white);
     display: flex;
     flex-wrap: wrap;
 }
