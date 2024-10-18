@@ -36,7 +36,7 @@ function getRandomColorVal() {
 }
 
 let color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
-let opacityMulitplier = 0.1;
+const OPACITY_MULTIPLIER = 0.1;
 
 container.addEventListener("mouseenter", () => {
     color = [getRandomColorVal(), getRandomColorVal(), getRandomColorVal()];
@@ -49,7 +49,7 @@ container.addEventListener("mouseover", (e) => {
     }
     else {
         if (e.target.style.opacity > 0) {
-            let opacity = (e.target.style.opacity * 10 - opacityMulitplier * 10) / 10;
+            let opacity = (e.target.style.opacity * 10 - OPACITY_MULTIPLIER * 10) / 10;
             e.target.style.opacity = `${opacity}`;
         }
     }
