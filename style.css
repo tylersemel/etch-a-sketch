@@ -9,7 +9,7 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background-color: azure;
+    background-color: rgb(215, 215, 215);
 }
 
 .button-container {
